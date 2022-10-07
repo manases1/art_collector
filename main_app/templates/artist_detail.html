@@ -16,10 +16,10 @@
 </div>
     <div class="detail__container">
         <!-- inside container -->
-    <div class="detail__songs mb-5">
+    <div class="detail__art mb-5">
 
-        <h3 class="title is-3">Songs</h3>
-        {% for song in artist.songs.all %}
+        <h3 class="title is-3">Art</h3>
+        {% for song in artist.art.all %}
         <div class="song">
         <span>{{forloop.counter}}</span>
         <span><b>{{song.title}}</b></span>
@@ -59,13 +59,13 @@
         {% empty %}
             <article class="message">
                 <div class="message-header">
-                    <p>No Songs Available</p>
+                    <p>No Art Available</p>
                 </div>
             </article>
 
         {% endfor %}
     </div>
-    <!-- inside detail songs element below the header -->
+    <!-- inside detail art element below the header -->
 
 <!-- Here you can see the action we provided
      is to the song_create route with the artist pk -->
@@ -107,7 +107,7 @@
         </div>
     </form>
 
-<!-- before the for loop for songs -->
+<!-- before the for loop for art -->
 
     <!--  above about section  -->
     <a href="{% url 'artist_update' artist.pk %}" class="button is-info">
