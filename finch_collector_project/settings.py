@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'finch_collector.urls'
+ROOT_URLCONF = 'finch_collector_project.urls'
 
 TEMPLATES = [
     {
@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'finch_collector.wsgi.application'
+WSGI_APPLICATION = 'finch_collector_project.wsgi.application'
 
 
 # Database
