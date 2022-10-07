@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+# At the top of the file
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-vlj+tf*c%g+a1#cc4vrw9!ya-q$^qiednlw+l@l7%e$r7)tf$1'
+SECRET_KEY = 'django-insecure-3u$n1cp*ajm+i#mp9vgckse6p@i9*7ac5c!%@qj*2ve&fjx3t5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -50,7 +52,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'finch_collector_project.urls'
+ROOT_URLCONF = 'finch_collector.urls'
 
 TEMPLATES = [
     {
@@ -68,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'finch_collector_project.wsgi.application'
+WSGI_APPLICATION = 'finch_collector.wsgi.application'
 
 
 # Database
@@ -77,7 +79,7 @@ WSGI_APPLICATION = 'finch_collector_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'finch_collector_project',
+        'NAME': 'games_collector',
     }
 }
 
@@ -122,3 +124,13 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# At bottom of file
+# https://docs.djangoproject.com/en/3.1/howto/static-files/
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'main_app/static')]
+
+# Add this variable to specify where successful logins should redirect to
+LOGIN_REDIRECT_URL = '/artists/'
+LOGOUT_REDIRECT_URL = '/'

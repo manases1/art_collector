@@ -13,7 +13,5 @@ class Home(TemplateView):
         # This is similar to response.send() in express
         template_name = "home.html"
 #...
-class About(View):
-
-    def get(self, request):
-        return HttpResponse("Finch About")
+class About(TemplateView):
+    template_name = "about.html"
