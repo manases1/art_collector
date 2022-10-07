@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'finch_collector.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'games_collector',
+        'NAME': 'art_collector',
     }
 }
 
