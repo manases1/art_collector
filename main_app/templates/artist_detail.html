@@ -19,11 +19,11 @@
     <div class="detail__art mb-5">
 
         <h3 class="title is-3">Art</h3>
-        {% for song in artist.art.all %}
-        <div class="song">
+        {% for art in artist.art.all %}
+        <div class="art">
         <span>{{forloop.counter}}</span>
-        <span><b>{{song.title}}</b></span>
-        <span>{{song.get_length}}</span>
+        <span><b>{{art.title}}</b></span>
+        <span>{{art.get_length}}</span>
         </div>
         <span>
           <div class="dropdown">
@@ -33,7 +33,7 @@
                 aria-haspopup="true"
                 aria-controls="dropdown-menu"
               >
-                <span>Add to Playlist</span>
+                <span>Add to Category</span>
                 <span class="icon is-small">
                   <i class="fas fa-angle-down" aria-hidden="true"></i>
                 </span>
@@ -41,14 +41,14 @@
             </div>
             <div class="dropdown-menu" id="dropdown-menu" role="menu">
               <div class="dropdown-content">
-                {% for playlist in playlists %}
-            <!-- each playlist becomes a drop
+                {% for category in categorys %}
+            <!-- each category becomes a drop
             down item with the ids needed to add to the join table  -->
                 <a
-                  href="{% url 'playlist_song_assoc' playlist.pk song.pk %}?assoc=add"
+                  href="{% url 'category_art_assoc' category.pk art.pk %}?assoc=add"
                   class="dropdown-item"
                 >
-                  {{playlist.title}}
+                  {{category.title}}
                 </a>
                 {% endfor %}
               </div>
@@ -68,8 +68,8 @@
     <!-- inside detail art element below the header -->
 
 <!-- Here you can see the action we provided
-     is to the song_create route with the artist pk -->
-    <form class="mb-5" action="{% url 'song_create' artist.pk %}" method="post">
+     is to the art_create route with the artist pk -->
+    <form class="mb-5" action="{% url 'art_create' artist.pk %}" method="post">
         {% csrf_token %}
         <div class="field has-addons">
         <div class="control">
@@ -85,8 +85,8 @@
             <input
             class="input"
             type="number"
-            name="minutes"
-            placeholder="Length in Minutes"
+            name="hours"
+            placeholder="Length in Hours"
             min="1"
             required
             />
@@ -95,14 +95,14 @@
             <input
             class="input"
             type="number"
-            name="seconds"
-            placeholder="Length in Seconds"
+            name="years"
+            placeholder="Length in Year"
             min="1"
             required
             />
         </div>
         <div class="control">
-            <input class="button is-primary" type="submit" value="Add Song" />
+            <input class="button is-primary" type="submit" value="Add Art" />
         </div>
         </div>
     </form>

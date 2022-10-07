@@ -111,9 +111,9 @@ class ArtCreate(View):
 
     def post(self, request, pk):
         formTitle = request.POST.get("title")
-        minutes = request.POST.get("minutes")
-        seconds = request.POST.get("seconds")
-        formLength = 60 * int(minutes) + int(seconds)
+        hours = request.POST.get("hours")
+        years = request.POST.get("years")
+        formLength = 60 * int(hours) + int(years)
         theArtist = Artist.objects.get(pk=pk)
         Art.objects.create(title=formTitle, length=formLength, artist=theArtist)
         return redirect('artist_detail', pk=pk)

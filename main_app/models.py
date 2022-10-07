@@ -31,7 +31,7 @@ class Art(models.Model):
         return self.title
 
     def get_length(self):
-        return time.strftime("%-M:%S", time.gmtime(self.length))
+        return time.strftime("%-Y:%H", time.gmtime(self.length))
 
 # Category model
 class Category(models.Model):
