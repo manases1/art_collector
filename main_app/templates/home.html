@@ -1,12 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artists</title>
-</head>
-<body>
-    <h1>finch</h1>
-</body>
-</html>
+{% extends 'base.html' %} 
+{% block content %}
+<div class="home__categorys">
+    {% for category in categorys %}
+
+        <div class="category mb-5">
+            <h3 class="title is-3 has-text-success">{{category.title}}</h3>
+            <hr />
+
+            {% for art in category.arts.all %}
+
+                <div class="art">
+                    <span>{{forloop.counter}}</span>
+                    <span><b>{{art.title}}</b></span>
+                    <span>{{art.get_length}}</span>
+                    <span>
+                        <!--   Here we are creating an anchor
+                        tag that when clicked will hit our new
+                        route and send a query to remove the art     -->
+                        <a href="{% url 'category_art_assoc' category.pk art.pk %}?assoc=remove" class="button is-danger is-outlined">
+                        <span class="icon is-small">
+                            <i class="fas fa-times"></i>
+                        </span>
+                        </a>
+                    </span>
+                </div>
+
+            {% endfor %}
+        </div>
+    {% empty %} 
+        <div class="category mb-5">"There are no arts in this category"</div>
+    {% endfor %}
+</div>
+{% endblock %}

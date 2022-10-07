@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('main_app', '0005_category'),
+        ('main_app', '0005_playlist'),
     ]
 
     operations = [
